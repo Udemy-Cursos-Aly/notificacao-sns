@@ -18,7 +18,7 @@ public class PropostaPendenteListener {
     private final NotificacaoSnsService notificacaoSnsService;
 
     @RabbitListener(queues = "${rabbit.mq.queue.pp.ms.notificacao}")
-    public void propostaPendenteFila(Proposta proposta) {
+    public void consumerFilaPropostaPendente(Proposta proposta) {
         log.info("[RabbitMQ] - Consumindo mensagem da fila: {}", proposta);
 
         Usuario usuarioProposta = proposta.getUsuario() != null ? proposta.getUsuario() : null;
